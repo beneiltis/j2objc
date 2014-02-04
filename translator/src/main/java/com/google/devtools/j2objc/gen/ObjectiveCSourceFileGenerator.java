@@ -229,7 +229,7 @@ public abstract class ObjectiveCSourceFileGenerator extends SourceFileGenerator 
       IOSParameter first = iosParameters.next();
       SingleVariableDeclaration var = parameters.get(first.getIndex());
       addTypeAndName(first, var, sb);
-      while (iosParameters.hasNext()) {
+      if (iosParameters.hasNext()) {
         sb.append(mappedMethod.isVarArgs() ? ", " : " ");
         IOSParameter next = iosParameters.next();
         sb.append(next.getParameterName());

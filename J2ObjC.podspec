@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "J2ObjC"
-  s.version      = "0.8.8"
+  s.version      = "0.9"
   s.license      = { :type => 'Apache License, Version 2.0', :file => 'COPYING' }
   s.summary      = "J2ObjC's JRE emulation library, emulates a subset of the Java runtime library."
   s.homepage     = "https://code.google.com/p/j2objc/"
   s.author       = "Google Inc."
-  s.source       = { :git => "https://github.com/goodow/j2objc.git", :tag => "v#{s.version}-lib" }
+  s.source       = { :git => "https://github.com/beneiltis/j2objc.git", :tag => "v#{s.version}-lib" }
 
   s.requires_arc = false
   s.default_subspec = 'lib/jre'
@@ -35,6 +35,7 @@ Pod::Spec.new do |s|
     
     lib.subspec 'guava' do |guava|
       guava.dependency 'J2ObjC/lib/jre'
+      guava.xcconfig = { 'OTHER_LDFLAGS' => '-force_load ${PODS_ROOT}/J2ObjC/dist/lib/libguava.a' }
       guava.libraries = 'guava'
     end
   end
