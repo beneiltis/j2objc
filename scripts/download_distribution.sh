@@ -15,11 +15,10 @@
 # limitations under the License.
 
 j2objc_version=0.9
-sha1_checksum=b9de338cea7d97fd676bb0337de0cba5aa2d5d36
+sha1_checksum=5866b70ea31c4f393c687444c66391a736bf7f76
 
 echo "fetching j2objc"
-curl -L -O https://github.com/beneiltis/j2objc/archive/${j2objc_version}.zip
-shasum ${j2objc_version}.zip
-shasum ${j2objc_version}.zip | grep -w ${sha1_checksum}
-unzip -o -q ${j2objc_version}.zip
-mv j2objc-${j2objc_version} dist
+curl -L -O https://github.com/beneiltis/j2objc/releases/download/0.9/j2objc-${j2objc_version}.zip
+shasum j2objc-${j2objc_version}.zip
+shasum j2objc-${j2objc_version}.zip | grep -w ${sha1_checksum}
+unzip -o -q -d dist j2objc-${j2objc_version}.zip
